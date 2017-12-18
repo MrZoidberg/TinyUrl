@@ -4,6 +4,13 @@ var gulp = require('gulp'),
 
 gulp.task("default", ["transpile"]);
 
+gulp.task("build", ["transpile", "copy"]);
+
+gulp.task("copy", function() {
+    return gulp.src(["src/*.html"])
+		.pipe(gulp.dest("dist"))
+});
+
 gulp.task("transpile", function(){
 	return browserify("src/app.js")
 	//.transform("babelify")

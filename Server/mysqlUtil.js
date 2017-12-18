@@ -2,11 +2,15 @@
 
 var mysql = require('mysql');
 
+var mysqlHost   = process.env.DB_HOST;
+var mysqlPass   = process.env.DB_PASS;
+var mysqlDb   = process.env.DB_DATABASE;
+
 var dbConn = mysql.createConnection({
-	host: 'localhost',
+	host: mysqlHost,
 	user: 'root',
-	password:'',
-	database: 'tiny_url'
+	password:mysqlPass,
+	database: mysqlDb
 });
 
 var dbConnect = function(){
